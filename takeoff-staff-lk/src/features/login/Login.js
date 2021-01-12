@@ -16,7 +16,7 @@ export function Login(){
       </div>
 
       <div className='login-comp__line'>
-        <input className='login-comp__input login-comp__btn' type='button' value = "log in"/>
+        <input className='login-comp__input login-comp__btn' type='button' value = "login"/>
       </div>
 
     </article>
