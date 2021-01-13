@@ -21,23 +21,14 @@ export const loginSlice = createSlice({
 
 export const { setAuthUser, clearAuthUser} = loginSlice.actions;
 
-/*
-// The function below is called a thunk and allows us to perform async logic. It
-// can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
-// will call the thunk with the `dispatch` function as the first argument. Async
-// code can then be executed and other actions can be dispatched
-export const incrementAsync = amount => dispatch => {
-  setTimeout(() => {
-    dispatch(incrementByAmount(amount));
-  }, 1000);
-};
-
-*/
-
 export const loginAction = (userName, userPsw) => dispatch => {
   console.log('loginAction', userName, userPsw);
   login(userName, userPsw)
-    .then((res)=>{dispatch(setAuthUser(userName));})
+    .then((res)=>{
+      if (res) {
+        dispatch(setAuthUser(userName));
+      }
+    })
 };
 
 export const getIsLoggedIn = state => state.auth.isLoggedIn;

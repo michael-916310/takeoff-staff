@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
+import { ContactList } from './features/contacts/contactList/contactList';
 
 import 'normalize.css';
 import './App.css';
@@ -13,6 +14,7 @@ function App() {
     <div className="App">
 
       <Login/>
+      <ContactList/>
 
       <header className="App-header">
         <Counter />
