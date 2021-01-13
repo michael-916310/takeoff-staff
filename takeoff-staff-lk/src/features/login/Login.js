@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {setAuthUser, getIsLoggedIn} from './loginSlice';
+import {getIsLoggedIn, loginAction} from './loginSlice';
 
 import './login.scss';
 
@@ -8,15 +8,18 @@ export function Login(){
   const isLoggedIn = useSelector(getIsLoggedIn);
   const dispatch = useDispatch();
 
+  const userNameEl = useRef('');
+  const userPswEl = useRef('');
+
   return !isLoggedIn && (
     <article className='login-comp__container'>
 
       <div>
-        <input className='login-comp__input' type='text' placeholder='login'/>
+        <input className='login-comp__input' type='text' placeholder='login' ref={userNameEl}/>
       </div>
 
       <div className='login-comp__line'>
-        <input className='login-comp__input' type='text' placeholder='password'/>
+        <input className='login-comp__input' type='text' placeholder='password' ref={userPswEl}/>
       </div>
 
       <div className='login-comp__line'>
@@ -25,7 +28,7 @@ export function Login(){
           type='button'
           value = "login"
           onClick={() =>
-            dispatch(setAuthUser('user'))
+            dispatch(loginAction(userNameEl.current.value, userPswEl.current.value))
           }
         />
       </div>

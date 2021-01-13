@@ -35,7 +35,9 @@ export const incrementAsync = amount => dispatch => {
 */
 
 export const loginAction = (userName, userPsw) => dispatch => {
-  login(userName, userPsw).then((res)=>{setAuthUser(userName);})
+  console.log('loginAction', userName, userPsw);
+  login(userName, userPsw)
+    .then((res)=>{dispatch(setAuthUser(userName));})
 };
 
 export const getIsLoggedIn = state => state.auth.isLoggedIn;
