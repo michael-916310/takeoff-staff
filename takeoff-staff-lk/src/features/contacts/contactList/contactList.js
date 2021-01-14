@@ -1,52 +1,52 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
+import { getContactData } from './../../../app/utils';
+import { getIsLoggedIn } from './../../login/loginSlice';
 
 import './contactList.scss';
 
 export function ContactList() {
-  const list = [
-    {
-      contactId: 1,
-      contactName: 'Иванов Иван Иванович',
-      contactPhone: '+7 917 999-88-77'
-    },
-    {
-      contactId: 2,
-      contactName: 'Чингачгук Петр Петрович',
-      contactPhone: '+7 927 111-22-33'
-    }
 
-  ];
-  return (
-    <table className="contactList-container">
+  const isLoggedIn = useSelector(getIsLoggedIn);
+
+  const [list, setList] = useState([]);
+  useEffect(()=>{
+    getContactData().then((data)=>{
+      setList(data);
+    })
+  }, []);
+
+  return isLoggedIn && (
+    <table className="contactList__container">
       <tbody>
         <tr>
-          <th> Id </th>
-          <th> Name </th>
-          <th> Phone </th>
-          <th> Actions </th>
+          <th className="contactList__header-column"> Id </th>
+          <th className="contactList__header-column"> Name </th>
+          <th className="contactList__header-column"> Phone </th>
+          <th className="contactList__header-column"> Actions </th>
         </tr>
-        {
+        { list.length && (
           list.map((el)=>{
             return (
-              <tr key={el.contactId}>
-                <td className="contactList-column">
+              <tr key={el.contactId} className="contactList__row">
+                <td className="contactList__column">
                   {el.contactId}
                 </td>
-                <td className="contactList-column">
+                <td className="contactList__column">
                   {el.contactName}
                 </td>
-                <td className="contactList-column">
+                <td className="contactList__column">
                   {el.contactPhone}
                 </td>
                 <td>
-                  <img className="contactList__icon" src="../edit_icon.png"/>
-                  <img className="contactList__icon" src="../delete_icon.png"/>
+                  <img className="contactList__icon" src="../edit_icon.png" alt="edit"/>
+                  <img className="contactList__icon" src="../delete_icon.png" alt="delete"/>
                 </td>
             </tr>
             )
           })
-        }
+        )}
       </tbody>
     </table>
   )

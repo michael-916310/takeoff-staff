@@ -1,13 +1,35 @@
-.contactList-container {
+@import './../../colors.scss';
+
+.contactList__container {
   margin: 0 auto;
+  border-collapse: collapse;
 }
 
-.contactList-column {
+.contactList__column,
+.contactList__header-column {
   font-size: 1.2rem;
+  padding: 10px;
+}
+
+.contactList__header-column {
+  padding: 12px;
+  background-color: $color-gray;
+  color: $color-white;
 }
 
 .contactList__icon {
   margin: 0 10px;
   height: 25px;
   object-fit: cover;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    border: 1px solid $color-silver;
+    border-radius: 5px;
+  }
+}
+
+.contactList__container tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
