@@ -15,7 +15,7 @@ export async function login (userName, userPsw) {
 }
 
 export async function getContactData(){
-  const list = [
+  let list = [
     {
       contactId: 1,
       contactName: 'Иванов Иван Иванович',
@@ -37,6 +37,9 @@ export async function getContactData(){
       contactPhone: '+7 927 333-22-33'
     }
   ];
+
+  const resp = await fetch("../contact-list-data.json");
+  console.log(resp);
 
   return list;
 }

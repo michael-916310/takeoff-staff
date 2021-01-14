@@ -16,9 +16,11 @@ function App() {
       <Login/>
       <ContactList/>
 
+      {/*
       <header className="App-header">
         <Counter />
       </header>
+      */}
     </div>
   );
 }
