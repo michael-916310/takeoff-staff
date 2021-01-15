@@ -13,10 +13,12 @@ export const loginSlice = createSlice({
     setAuthUser: (state, action) => {
       state.userName = action.payload;
       state.isLoggedIn = true;
+      state.loginAttempts = 0;
     },
     clearAuthUser: (state) =>{
       state.isLoggedIn = false;
-      state.userName ='';
+      state.userName = '';
+      state.loginAttempts = 0;
     },
     setFailLoginMessage: (state) => {
       state.failLoginMessage = 'incorrect login or password';
@@ -29,6 +31,7 @@ export const loginSlice = createSlice({
 
 //export const { setAuthUser, clearAuthUser, setFailLoginMessage} = loginSlice.actions;
 const { setAuthUser, setFailLoginMessage, incrementLoginAttempts} = loginSlice.actions;
+export const { clearAuthUser } = loginSlice.actions;
 
 export const loginAction = (userName, userPsw) => dispatch => {
   login(userName, userPsw)

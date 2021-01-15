@@ -1,7 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
+
 import { ContactList } from './features/contacts/contactList/contactList';
+import { Header } from './features/header/Header';
 
 import 'normalize.css';
 import './App.css';
@@ -13,6 +14,7 @@ function App() {
   return (
     <div className="App">
 
+      <Header/>
       <Login/>
       <ContactList/>
 

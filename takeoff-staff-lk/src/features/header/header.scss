@@ -1,0 +1,29 @@
+@import './../colors.scss';
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+
+  width: 700px;
+  margin: 10px auto;
+  padding: 20px;
+
+  font-size: 1.2rem;
+
+  background-color: $color-clouds;
+  border-radius: 10px;
+}
+
+.header-right,
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-logout {
+  &:hover {
+    transform: scale(1.2);
+    border: 1px solid $color-silver;
+    border-radius: 5px;
+  }
+}

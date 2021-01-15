@@ -40,8 +40,8 @@ export function ContactList() {
                   {el.contactPhone}
                 </td>
                 <td>
-                  <img className="contactList__icon" src="../edit_icon.png" alt="edit"/>
-                  <img className="contactList__icon" src="../delete_icon.png" alt="delete"/>
+                  <img className="contactList__icon" src="../icons/edit_icon.png" alt="edit"/>
+                  <img className="contactList__icon" src="../icons/delete_icon.png" alt="delete"/>
                 </td>
             </tr>
             )
