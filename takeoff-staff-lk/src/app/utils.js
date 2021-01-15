@@ -19,7 +19,6 @@ export async function getContactData(){
     const resp = await fetch("../data/contact-list-data.json");
     if (resp.ok) {
       const data = await resp.json();
-      console.log(data);
       return data.list;
     }
     return [];

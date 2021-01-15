@@ -1,24 +1,20 @@
-@import './../colors.scss';
+@import './../../colors.scss';
 
-.login-comp__container {
+.addContact__container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 5px 0;
+  justify-content: space-between;
+
+  padding: 10px 0;
 }
 
-.login-comp__line {
-  margin: 5px 0;
-}
-
-.login-comp__input {
+.addContact__input {
   padding: 5px 10px;
   font-size: 1.2rem;
   border-radius: 10px;
   outline: none;
 
   border: 1px solid $color-primary;
-  width: 300px;
+  width: 250px;
   height: 40px;
   color: $color-secondary;
 
@@ -28,7 +24,7 @@
   }
 }
 
-.login-comp__btn {
+.addContact__btn {
   cursor: pointer;
   border: none;
   font-weight: bold;
@@ -36,6 +32,8 @@
 
   transition-property: transform;
   transition-duration: 0.5s;
+
+  width: 100px;
 
   &:hover,
   &:focus {
@@ -47,4 +45,8 @@
     background-color: $color-gray;
     color: $color-white;
   }
+}
+
+.addContact__phone {
+  width: 200px;
 }

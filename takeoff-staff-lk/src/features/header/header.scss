@@ -20,10 +20,27 @@
   align-items: center;
 }
 
-.header-logout {
+.header__contact-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  height: 38px;
+  width: 180px;
+
+  font-size: 1.2rem;
+
+  border-radius: 10px;
+
+  transition-property: transform;
+  transition-duration: 0.5s;
+
   &:hover {
-    transform: scale(1.2);
-    border: 1px solid $color-silver;
-    border-radius: 5px;
+    transform: scale(1.1);
+    background-color: $color-silver;
   }
+}
+
+.header__add-contact-icon {
+  height: 25px;
 }
