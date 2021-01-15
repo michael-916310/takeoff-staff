@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getContactData } from './../../../app/utils';
 
 import { setContactList, getContactList } from './contactListSlice';
+import { setDeleteContactMode } from './../deleteContact/deleteContactSlice';
+import {setAddContactMode} from './../addContact/addContactSlice';
 
 import './contactList.scss';
 
@@ -43,7 +45,14 @@ export function ContactList() {
                   </td>
                   <td>
                     <img className="contactList__icon" src="../icons/edit_icon.png" alt="edit"/>
-                    <img className="contactList__icon" src="../icons/delete_icon.png" alt="delete"/>
+                    <img
+                      className="contactList__icon"
+                      src="../icons/delete_icon.png"
+                      alt="delete"
+                      onClick={()=>{
+                        dispatch(setDeleteContactMode(true));
+                        dispatch(setAddContactMode(false));
+                      }}/>
                   </td>
               </tr>
               )

@@ -23,10 +23,13 @@ export const contactListSlice = createSlice({
         contactPhone: action.payload.contactPhone,
       })
     },
+    deleteContactAction: (state, action) => {
+
+    }
   },
 });
 
-export const { setContactList, addContactAction } = contactListSlice.actions;
+export const {setContactList, addContactAction, deleteContactAction} = contactListSlice.actions;
 
 export const getContactList = state => state.contactList.list;
 

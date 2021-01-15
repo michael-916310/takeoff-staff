@@ -5,6 +5,7 @@ import { getIsLoggedIn } from './../../login/loginSlice';
 
 import { ContactList } from './../contactList/contactList';
 import { AddContact } from './../addContact/AddContact';
+import { DeleteContact } from './../deleteContact/DeleteContact';
 
 import './contactPage.scss';
 
@@ -15,6 +16,7 @@ export function ContactPage() {
   return isLoggedIn && (
     <article className="contactPage__container">
       <AddContact/>
+      <DeleteContact/>
       <ContactList/>
     </article>
   )

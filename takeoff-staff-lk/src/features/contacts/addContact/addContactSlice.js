@@ -15,7 +15,6 @@ export const addContactSlice = createSlice({
 export const { setAddContactMode } = addContactSlice.actions;
 
 export const getAddContactMode = state => {
-  //console.log('getAddContactMode', state.addContact.isAddContactMode);
   return state.addContact.isAddContactMode;
 };
 
