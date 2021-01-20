@@ -38,7 +38,7 @@ export function Header(){
               className="header__contact-btn"
               onClick = {()=>{
                 dispatch(setAddContactMode(true));
-                dispatch(setDeleteContactMode(false));
+                dispatch(setDeleteContactMode({mode:false, contactId:null}));
               }}>
               <img className="header__add-contact-icon" src="../icons/add_icon.png" alt="add"/>
               Add contact

@@ -24,7 +24,9 @@ export const contactListSlice = createSlice({
       })
     },
     deleteContactAction: (state, action) => {
-
+      state.list = state.list.filter((el)=>{
+        return (el.contactId !== action.payload);
+      });
     }
   },
 });

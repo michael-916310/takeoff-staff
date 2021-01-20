@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getContactData } from './../../../app/utils';
 
 import { setContactList, getContactList } from './contactListSlice';
-import { setDeleteContactMode } from './../deleteContact/deleteContactSlice';
+import { setDeleteContactMode, setDeleteId, getDeleteId } from './../deleteContact/deleteContactSlice';
 import {setAddContactMode} from './../addContact/addContactSlice';
 
 import './contactList.scss';
@@ -13,6 +13,7 @@ export function ContactList() {
 
   const dispatch = useDispatch();
   const list = useSelector(getContactList);
+  const deleteId = useSelector(getDeleteId);
 
   useEffect(()=>{
     getContactData().then((data)=>{
@@ -50,7 +51,7 @@ export function ContactList() {
                       src="../icons/delete_icon.png"
                       alt="delete"
                       onClick={()=>{
-                        dispatch(setDeleteContactMode(true));
+                        dispatch(setDeleteContactMode({mode:true, id:el.contactId}));
                         dispatch(setAddContactMode(false));
                       }}/>
                   </td>
