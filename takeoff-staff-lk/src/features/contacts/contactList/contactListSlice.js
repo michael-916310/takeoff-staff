@@ -4,7 +4,7 @@ function getMaxId (arr) {
   const a = arr.map((el)=>{
     return el.contactId;
   });
-  return Math.max(...a);
+  return Math.max(...a, 0);
 }
 
 export const contactListSlice = createSlice({
@@ -27,11 +27,28 @@ export const contactListSlice = createSlice({
       state.list = state.list.filter((el)=>{
         return (el.contactId !== action.payload);
       });
+    },
+    updateContactAction: (state, action) => {
+      state.list = state.list.map((el) => {
+        if (el.contactId === action.payload.contactId) {
+          return {
+            contactId: action.payload.contactId,
+            contactName: action.payload.contactName,
+            contactPhone: action.payload.contactPhone,
+          }
+        } else {
+          return {...el}
+        }
+      })
     }
   },
 });
 
-export const {setContactList, addContactAction, deleteContactAction} = contactListSlice.actions;
+export const {
+  setContactList,
+  addContactAction,
+  deleteContactAction,
+  updateContactAction} = contactListSlice.actions;
 
 export const getContactList = state => state.contactList.list;
 

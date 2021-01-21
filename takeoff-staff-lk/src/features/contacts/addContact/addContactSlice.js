@@ -6,13 +6,18 @@ export const addContactSlice = createSlice({
     isAddContactMode:false,
   },
   reducers: {
-    setAddContactMode: (state, action) => {
-      state.isAddContactMode = action.payload;
+    stopAddContactAction: (state) => {
+      state.isAddContactMode = false;
+    },
+    startAddContactAction: (state) => {
+      state.isAddContactMode = true;
     },
   },
 });
 
-export const { setAddContactMode } = addContactSlice.actions;
+export const {
+  startAddContactAction,
+  stopAddContactAction } = addContactSlice.actions;
 
 export const getAddContactMode = state => {
   return state.addContact.isAddContactMode;

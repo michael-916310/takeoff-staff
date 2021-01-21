@@ -7,23 +7,23 @@ const deleteContactSlice = createSlice({
     deleteId: null,
   },
   reducers: {
-    setDeleteContactMode: (state, action) => {
-      state.isDeleteContactMode = action.payload.mode;
-      state.deleteId = action.payload.id;
-
-      if (!state.isDeleteContactMode ) {
-        state.deleteId = null;
-      }
-    },
-    setDeleteId: (state, action) => {
+    startDeleteContactAction: (state, action) => {
+      state.isDeleteContactMode = true;
       state.deleteId = action.payload;
+    },
+    stopDeleteContactAction: (state) => {
+      state.isDeleteContactMode = false;
+      state.deleteId = null;
     }
   },
 });
 
-export const { setDeleteContactMode, setDeleteId } = deleteContactSlice.actions;
+export const {
+  setDeleteContactMode,
+  startDeleteContactAction,
+  stopDeleteContactAction} = deleteContactSlice.actions;
 
-export const getDeleteContactMode= state => {
+export const getDeleteContactMode = state => {
   return state.deleteContact.isDeleteContactMode;
 };
 

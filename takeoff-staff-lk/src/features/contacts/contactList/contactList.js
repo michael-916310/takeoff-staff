@@ -1,11 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getContactData } from './../../../app/utils';
 
 import { setContactList, getContactList } from './contactListSlice';
-import { setDeleteContactMode, setDeleteId, getDeleteId } from './../deleteContact/deleteContactSlice';
-import {setAddContactMode} from './../addContact/addContactSlice';
+import { getDeleteId, startDeleteContactAction, stopDeleteContactAction } from './../deleteContact/deleteContactSlice';
+import { stopAddContactAction } from './../addContact/addContactSlice';
+import { stopEditContactAction, startEditContactAction } from './../editContact/editContactSlice';
 
 import './contactList.scss';
 
@@ -21,6 +22,8 @@ export function ContactList() {
     })
   }, []);
 
+  console.log(list);
+
   return (
     <React.Fragment>
       <table className="contactList__container">
@@ -31,7 +34,7 @@ export function ContactList() {
             <th className="contactList__header-column"> Phone </th>
             <th className="contactList__header-column"> Actions </th>
           </tr>
-          { list.length && (
+          { (list.length>0) && (
             list.map((el)=>{
               return (
                 <tr key={el.contactId} className="contactList__row">
@@ -45,14 +48,24 @@ export function ContactList() {
                     {el.contactPhone}
                   </td>
                   <td>
-                    <img className="contactList__icon" src="../icons/edit_icon.png" alt="edit"/>
+                    <img
+                      className="contactList__icon"
+                      src="../icons/edit_icon.png"
+                      alt="edit"
+                      onClick = { ()=>{
+                        dispatch(stopAddContactAction());
+                        dispatch(stopDeleteContactAction());
+                        dispatch(startEditContactAction(el.contactId));
+                      }}
+                      />
                     <img
                       className="contactList__icon"
                       src="../icons/delete_icon.png"
                       alt="delete"
                       onClick={()=>{
-                        dispatch(setDeleteContactMode({mode:true, id:el.contactId}));
-                        dispatch(setAddContactMode(false));
+                        dispatch(stopAddContactAction());
+                        dispatch(stopEditContactAction());
+                        dispatch(startDeleteContactAction(el.contactId));
                       }}/>
                   </td>
               </tr>

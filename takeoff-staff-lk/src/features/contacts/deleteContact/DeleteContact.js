@@ -1,7 +1,7 @@
 import React, {useState, useEffect}  from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
-import {getDeleteContactMode, getDeleteId, setDeleteContactMode} from './deleteContactSlice';
+import {getDeleteContactMode, getDeleteId, setDeleteContactMode, stopDeleteContactAction} from './deleteContactSlice';
 import {getContactList, deleteContactAction} from './../contactList/contactListSlice';
 
 import './deleteContact.scss';
@@ -29,8 +29,6 @@ export function DeleteContact(){
     }
   }, [deleteId, contactList]);
 
-
-
   return isDeleteContactMode && deleteId && (
     <form className="deleteContact__container">
 
@@ -56,7 +54,7 @@ export function DeleteContact(){
           e.preventDefault();
 
           dispatch(deleteContactAction(deleteId));
-          dispatch(setDeleteContactMode({mode:false, id:null}));
+          dispatch(stopDeleteContactAction());
           }
         }
       />
@@ -66,8 +64,7 @@ export function DeleteContact(){
         type='button'
         value = "close"
         onClick={(e) => {
-          dispatch(setDeleteContactMode(false));
-          dispatch(setDeleteContactMode({mode:false, id:null}));
+          dispatch(stopDeleteContactAction());
           }
         }
       />

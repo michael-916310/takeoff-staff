@@ -2,8 +2,9 @@ import React, { useState, useRef } from 'react';
 import {useDispatch, useSelector } from 'react-redux';
 
 import {getIsLoggedIn, getLoggedUser, clearAuthUser} from './../login/loginSlice';
-import {setAddContactMode} from './../contacts/addContact/addContactSlice';
-import {setDeleteContactMode} from './../contacts/deleteContact/deleteContactSlice';
+import {startAddContactAction} from './../contacts/addContact/addContactSlice';
+import {stopDeleteContactAction} from './../contacts/deleteContact/deleteContactSlice';
+import {stopEditContactAction} from './../contacts/editContact/editContactSlice';
 
 import './header.scss';
 
@@ -37,8 +38,9 @@ export function Header(){
             <button
               className="header__contact-btn"
               onClick = {()=>{
-                dispatch(setAddContactMode(true));
-                dispatch(setDeleteContactMode({mode:false, contactId:null}));
+                dispatch(startAddContactAction());
+                dispatch(stopDeleteContactAction());
+                dispatch(stopEditContactAction());
               }}>
               <img className="header__add-contact-icon" src="../icons/add_icon.png" alt="add"/>
               Add contact

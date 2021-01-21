@@ -1,7 +1,7 @@
 import React, {useRef}  from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
-import { getAddContactMode, setAddContactMode, addContact } from './addContactSlice';
+import { getAddContactMode, stopAddContactAction, addContact } from './addContactSlice';
 import { addContactAction } from './../contactList/contactListSlice';
 
 import './addContact.scss';
@@ -32,7 +32,7 @@ export function AddContact(){
               contactName:nameEl.current.value,
               contactPhone:phoneEl.current.value
               }));
-            dispatch(setAddContactMode(false));
+            dispatch(stopAddContactAction());
             }
           }
         />
@@ -42,7 +42,7 @@ export function AddContact(){
           type='button'
           value = "close"
           onClick={(e) => {
-            dispatch(setAddContactMode(false));
+            dispatch(stopAddContactAction());
             }
           }
         />
