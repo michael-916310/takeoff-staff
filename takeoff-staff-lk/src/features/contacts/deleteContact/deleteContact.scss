@@ -18,10 +18,7 @@
   height: 40px;
   color: $color-secondary;
 
-  &:hover,
-  &:focus {
-    background-color: $color-clouds;
-  }
+  background-color: $color-clouds;
 }
 
 .deleteContact__btn {

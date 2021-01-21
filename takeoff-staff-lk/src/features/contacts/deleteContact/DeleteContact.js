@@ -13,7 +13,7 @@ export function DeleteContact(){
   const deleteId = useSelector(getDeleteId);
   const contactList = useSelector(getContactList);
 
-  const [state, setState] = useState({
+  const [contactInfo, setContactInfo] = useState({
     contactName: 'contactName',
     contactPhone: 'contactPhone'
   });
@@ -21,12 +21,15 @@ export function DeleteContact(){
   useEffect(()=>{
     const arr = contactList.filter((el)=>{return el.contactId === deleteId});
     if (arr.length === 1) {
-      setState({
+      const info = {
         contactName: arr[0].contactName,
         contactPhone: arr[0].contactPhone,
-      });
+      }
+      setContactInfo(info);
     }
   }, [deleteId, contactList]);
+
+
 
   return isDeleteContactMode && deleteId && (
     <form className="deleteContact__container">
@@ -34,13 +37,13 @@ export function DeleteContact(){
       <input
         className='deleteContact__input'
         type='text'
-        defaultValue={ state.contactName }
+        value={ contactInfo.contactName }
         readOnly
       />
 
       <input
         className='deleteContact__input deleteContact__phone'
-        defaultValue = { state.contactPhone}
+        value = { contactInfo.contactPhone}
         readOnly
         type='text'
       />
