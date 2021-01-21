@@ -50,7 +50,7 @@ export function ContactList() {
                   <td>
                     <img
                       className="contactList__icon"
-                      src="../icons/edit_icon.png"
+                      src="./icons/edit_icon.png"
                       alt="edit"
                       onClick = { ()=>{
                         dispatch(stopAddContactAction());
@@ -60,7 +60,7 @@ export function ContactList() {
                       />
                     <img
                       className="contactList__icon"
-                      src="../icons/delete_icon.png"
+                      src="./icons/delete_icon.png"
                       alt="delete"
                       onClick={()=>{
                         dispatch(stopAddContactAction());

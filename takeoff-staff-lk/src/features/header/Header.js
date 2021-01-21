@@ -42,7 +42,7 @@ export function Header(){
                 dispatch(stopDeleteContactAction());
                 dispatch(stopEditContactAction());
               }}>
-              <img className="header__add-contact-icon" src="../icons/add_icon.png" alt="add"/>
+              <img className="header__add-contact-icon" src="./icons/add_icon.png" alt="add"/>
               Add contact
             </button>
           </div>
@@ -56,7 +56,7 @@ export function Header(){
             >
             <img
               className="header-logout"
-              src="../icons/logout_icon.png"
+              src="./icons/logout_icon.png"
               alt="logout"
             />
             log out
