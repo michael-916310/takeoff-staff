@@ -64,7 +64,7 @@ export function Header(){
         )}
 
         {!isLoggedIn && (
-            <a href="../data/auth-data.json" target="blank">JSON со списком логинов и паролей</a>
+            <a href="./data/auth-data.json" target="blank">JSON со списком логинов и паролей</a>
         )}
       </div>
 

@@ -1,6 +1,6 @@
 export async function login (userName, userPsw) {
   try{
-    const resp = await fetch('../data/auth-data.json');
+    const resp = await fetch('./data/auth-data.json');
     if (resp.ok) {
       const data = await resp.json();
       return data.userList.filter((el)=>{
@@ -16,7 +16,7 @@ export async function login (userName, userPsw) {
 
 export async function getContactData(){
   try{
-    const resp = await fetch("../data/contact-list-data.json");
+    const resp = await fetch("./data/contact-list-data.json");
     if (resp.ok) {
       const data = await resp.json();
       return data.list;
