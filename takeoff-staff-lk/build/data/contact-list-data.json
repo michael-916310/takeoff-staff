@@ -1,0 +1,23 @@
+ {"list": [
+		{
+		  "contactId": 1,
+		  "contactName": "Иванов Иван Иванович",
+		  "contactPhone": "+7 917 999-88-77"
+		},
+		{
+		  "contactId": 2,
+		  "contactName": "Чингачгук Петр Петрович",
+		  "contactPhone": "+7 927 111-22-33"
+		},
+		{
+		  "contactId": 3,
+		  "contactName": "Васильева Василиса Премудрая",
+		  "contactPhone": "+7 927 222-22-33"
+		},
+		{
+		  "contactId": 4,
+		  "contactName": "Царь Царевич Король Королевич",
+		  "contactPhone": "+7 927 333-22-33"
+		}
+	  ]
+  }
